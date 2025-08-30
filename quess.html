@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="main">
+    <input type="text" id="number" placeholder="Enter guess" min="1" max="100">
+<span >
+    <br>
+    Attempts : <span id="attempts"></span>
+</span>
+<p id="highLow"></p>
+
+    <button id="guess" onclick="guesss()">Gesss</button>
+    <button id="reset" onclick="reset()">Reset</button>
+</div>
+
+<script>
+var secretNumber
+let attempts
+let stringValue;
+function startGame(){
+    console.log("DFgg")
+     secretNumber=Math.floor(Math.random() * 100) + 1;
+ document.getElementById('number').innerHTML=secretNumber
+      attempts = 0;
+      document.getElementById("highLow").innerText = "";
+      document.getElementById("attempts").innerText = attempts;
+      document.getElementById("number").value = "";
+
+
+}
+function guesss(){
+    attempts++
+     document.getElementById('attempts').innerHTML= attempts
+   console.log(document.getElementById('number').value , 'dffd')
+if(document.getElementById('number').value ==secretNumber){
+    stringValue="Correct"
+    document.getElementById('highLow').innerHTML=stringValue
+}else if(document.getElementById('number').value<secretNumber){
+    stringValue="Too low"
+        document.getElementById('highLow').innerHTML=stringValue
+}else{
+    stringValue='Too high'
+        document.getElementById('highLow').innerHTML=stringValue
+}
+
+console.log("sdf" ,secretNumber)
+}
+
+function reset(){
+    startGame()
+}
+
+    startGame();
+</script>
+</body>
+</html>
